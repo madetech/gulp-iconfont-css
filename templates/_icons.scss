@@ -34,13 +34,9 @@
 	@return $char;
 }
 
-@mixin <%= cssClass%>($filename, $insert: before, $extend: true) {
+@mixin <%= cssClass%>($filename, $insert: before) {
 	&:#{$insert} {
-		@if $extend {
-			@extend %<%= cssClass%>;
-		} @else {
-			@include <%= cssClass%>-styles;
-		}
+		@include <%= cssClass%>-styles;
 		content: <%= cssClass%>-char($filename);
 	}
 }
